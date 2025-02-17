@@ -1,32 +1,41 @@
-﻿#include <iostream>
+#include <iostream>
 using namespace std;
-int main()
-//4.23) Дано двузначное число. Определить: а) какая из его цифр больше: первая или вторая; б) одинаковы ли его цифры.
-{
+//4.23  Дано двузначное число. Определить: а) какая из его цифр больше: первая или вторая; б) одинаковы ли его цифры.
+int main(int argc, char* argv[]) {
     setlocale(0, "rus");
-
-    int A;
-    cout << "Введите произвольное двузначное число: ";
-    cin >> A;
-
-    if (A >= 10 && A < 100) {
-        int FirstNumber = A / 10;
-        int SecondNumber = A % 10;
-        if (FirstNumber > SecondNumber) {
-            cout << "Первая цифра данного числа больше, чем вторая" << endl;
-        }
-        else if (FirstNumber < SecondNumber) {
-            cout << "Вторая цифра данного числа больше, чем первая" << endl;
-        }
-        else {
-            cout << "Обе цифры данного числа одинаковы." << endl;
-        }
-        return 0;
+    if (argc != 2) {
+        cout << "Ошибка: введите только одно двузначное число!" << endl;
+        return 1; 
     }
-    else {
-        cout << "Ошибка! На вход поступило не двузначное число. Попробуйте ещё раз." << endl;
+
+    int number = atoi(argv[1]);
+
+    if (number < 10 || number > 99) {
+        cout << "Ошибка: введите двузначное число!" << endl;
         return 1;
     }
-   
-}
 
+    int firstDigit = number / 10; 
+    int secondDigit = number % 10; 
+
+    cout << "а) ";
+    if (firstDigit > secondDigit) {
+        cout << "Первая цифра (" << firstDigit << ") больше второй (" << secondDigit << ")." << endl;
+    }
+    else if (secondDigit > firstDigit) {
+        cout << "Вторая цифра (" << secondDigit << ") больше первой (" << firstDigit << ")." << endl;
+    }
+    else {
+        cout << "Цифры равны." << endl;
+    }
+
+    cout << "б) ";
+    if (firstDigit == secondDigit) {
+        cout << "Цифры одинаковы." << endl;
+    }
+    else {
+        cout << "Цифры не одинаковы." << endl;
+    }
+
+    return 0;
+}
