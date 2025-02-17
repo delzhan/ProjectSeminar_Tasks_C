@@ -10,7 +10,7 @@ int main()
     Z = true;
 
     bool a = (X or Y) and (not(Z)) ;
-    bool b = (not(X)) or (not(Y));
+    bool b = (not(X)) and (not(Y));
     bool c = (not(X and Z)) or Y;
     bool d = X and (not(Y)) or Z;
     bool e = X and ((not(Y)) and Z);
