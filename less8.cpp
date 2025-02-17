@@ -16,15 +16,24 @@ int main()
     cout << "Введите произвольное значение площади круга: ";
     cin >> AreaOfCircle;
 
-    if (AreaOfCircle > AreaOfSquare) {
-        cout << "Квадрат уместится в круге." << endl;
-    }
-    else if (AreaOfCircle < AreaOfSquare) {
+    double CircleDiameter = 2 * sqrt(AreaOfCircle / M_PI);
+    double SquareSide = sqrt(AreaOfSquare);
+    double SquareDiagonal = SquareSide * sqrt(2);
+
+    cout << "а) ";
+    if (CircleDiameter <= SquareSide) {
         cout << "Круг уместится в квадрате." << endl;
     }
     else {
-        cout << "Площади данных фигур равны. Ни одна из фигур не поместится в другой." << endl;
+        cout << "Круг не уместится в квадрате." << endl;
     }
 
+    cout << "б) ";
+    if (SquareDiagonal <= CircleDiameter) {
+        cout << "Квадрат уместится в круге." << endl;
+    }
+    else {
+        cout << "Квадрат не уместится в круге." << endl;
+    }
     return 0;
 }
