@@ -5,15 +5,14 @@ int main()
 {
 	setlocale(0, "rus");
 	int a, CountOfUnits, CountOfTen, CountOfHundreds, SummOfAllNumbers, CompositionOfAllCounts;
-	cout << "Введите произвольное трёхзачное число : "; 
+	cout << "Введите произвольное двузначное число : "; 
 	cin >> a;
-	
-	if (a >= 100  && a < 1000) {
+
+	if (a >= 10  && a < 100) {
 		CountOfUnits = a % 10;
 		CountOfTen = (a / 10) % 10;
-		CountOfHundreds = a / 100;
-		SummOfAllNumbers = CountOfUnits + CountOfTen + CountOfHundreds;
-		CompositionOfAllCounts = CountOfUnits * CountOfTen * CountOfHundreds;
+		SummOfAllNumbers = CountOfUnits + CountOfTen;
+		CompositionOfAllCounts = CountOfUnits * CountOfTen;
 	} else {
 		cout << "Ошибка! Введено неправильное значение. Попробуйте ещё раз." << endl;
 		return 1;
